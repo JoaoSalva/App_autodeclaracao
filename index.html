@@ -60,11 +60,16 @@
     <header class="bg-white shadow-md">
         <div class="container mx-auto max-w-5xl p-4 flex justify-between items-center">
             <div class="flex items-center space-x-3">
-                <img src="https://drive.google.com/thumbnail?id=1rCzUb7MYvlP5xWVL8sVusdkMgr9EgKAU" alt="Imagem do Logo da Prefeitura de Porto Ferreira" class="h-10 sm:h-12">
+                <img src="https://drive.google.com/thumbnail?id=1rCzUb7MYvlP5xWVL8sVusdkMgr9EgKAU" alt="Imagem do Logo da Prefeitura de Porto Ferreira" class="h-20 sm:h-24">
             </div>
-            <h1 class="text-base sm:text-xl font-bold text-gray-700 text-right">
-                Política de Equidade Racial
-            </h1>
+            <div class="text-right">
+                <h1 class="text-base sm:text-xl font-bold text-gray-700">
+                    Política de Equidade Racial
+                </h1>
+                <p class="text-sm text-gray-500">
+                    Ferramenta de auto declaração de Cor / raça
+                </p>
+            </div>
         </div>
     </header>
     <!-- ========================
@@ -100,8 +105,38 @@
 
         <!-- Página 1: Home (Visível por padrão) -->
         <div id="page-home" class="page-content bg-white p-6 sm:p-10 rounded-lg shadow-lg">
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">Guia Home</h2>
-            <p>Em construção... Aqui ficará a apresentação, logos, etc.</p>
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 border-b pb-3">
+                Bem-vindo(a)!
+            </h2>
+            <!-- 
+              'prose' é uma classe do Tailwind que formata automaticamente
+              parágrafos, listas, etc. (como no Word) 
+            -->
+
+             <div class="prose prose-lg max-w-none text-gray-700 space-y-4 text-justify">
+                <p>
+                    Olá, aluno(a)! Esta é a plataforma da Secretaria de Educação de Porto Ferreira para a Autodeclaração de Cor/Raça.
+                </p>
+                <p>
+                    Preencher este formulário é muito importante para a escola entender melhor quem são seus alunos e criar ações para que todos se sintam incluídos e respeitados.
+                </p>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non, hic reprehenderit iure placeat porro nostrum. Reiciendis asperiores dolor dolores eligendi, eius assumenda sunt earum repellat, excepturi inventore vero commodi porro!Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non, hic reprehenderit iure placeat porro nostrum. Reiciendis asperiores dolor dolores eligendi, eius assumenda sunt earum repellat, excepturi inventore vero commodi porro!Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non, hic reprehenderit iure placeat porro nostrum. Reiciendis asperiores dolor dolores eligendi, eius assumenda sunt earum repellat, excepturi inventore vero commodi porro!
+                </p>
+            <!-- 
+                  Lembrete: Use o formato thumbnail?id=... 
+                  Substitua este placeholder por uma imagem do Google Drive
+            -->
+                <img src="https://drive.google.com/thumbnail?id=1FMoY4e-7z6jC28k67Tl9UkWFnBc5ELQO" alt="Imagem ilustrativa sobre equidade" class="rounded-lg shadow-md w-full my-6">
+                
+                <p>
+                    Se tiver qualquer dúvida, clique na guia "Dúvidas" ou "Contato" no menu acima.
+                </p>
+            <!-- Este botão vai pular para a Guia Formulário -->
+                <div class="text-center pt-6">
+                    <button id="goToFormButton" class="inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500">
+                        Começar a Preencher
+                    </button>
         </div>
 
         <!-- Página 2: Formulário (Escondida) -->
@@ -153,6 +188,7 @@
         const navMenu = document.getElementById('navigationMenu');
         const navButtons = navMenu.querySelectorAll('.nav-item');
         const pages = document.querySelectorAll('.page-content');
+        const goToFormButton = document.getElementById('goToFormButton');
         
         // === LÓGICA DE NAVEGAÇÃO (SPA) ===
 
@@ -201,6 +237,12 @@
             // Chama nossa função para mostrar a página
             showPage(pageName);
           }
+        
+        });
+        // "Ouvidor" para o botão "Começar a Preencher"
+            goToFormButton.addEventListener('click', () => {
+        // Chama nossa função para pular direto para a página "form"
+            showPage('form');
         });
         
         // Define a página inicial
