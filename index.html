@@ -26,11 +26,11 @@
       
       /* Esta é a classe MÁGICA que faz o SPA funcionar */
       /* Qualquer coisa com .hidden será escondida */
-      /*
+      
       .hidden {
         display: none;
       }
-      */
+
       /* Estilo para o botão do menu ativo */
       .nav-item.active {
         background-color: #0E7490; /* Azul (Cyan) mais escuro */
@@ -141,5 +141,73 @@
     <footer class="text-center text-gray-500 text-sm py-8">
         © 2025 Secretaria de Educação de Porto Ferreira | Desenvolvido com Google Apps Script
     </footer>
+    <!-- ========================
+     JAVASCRIPT (Cliente)
+     ======================== -->
+<script>
+    // Espera o documento HTML carregar antes de executar o script
+    document.addEventListener('DOMContentLoaded', (event) => {
+        
+        // === ELEMENTOS DO DOM (Referências) ===
+        // "Guardamos" os elementos que vamos usar várias vezes
+        const navMenu = document.getElementById('navigationMenu');
+        const navButtons = navMenu.querySelectorAll('.nav-item');
+        const pages = document.querySelectorAll('.page-content');
+        
+        // === LÓGICA DE NAVEGAÇÃO (SPA) ===
+
+        /**
+         * Mostra uma página (guia) e esconde as outras
+         * @param {string} pageName - O nome da página (ex: "home", "form")
+         */
+        function showPage(pageName) {
+          
+          // 1. Esconde todas as páginas
+          //    Para cada 'page' na lista 'pages', adiciona a classe 'hidden'
+          pages.forEach(page => {
+            page.classList.add('hidden');
+          });
+          
+          // 2. Mostra a página solicitada
+          //    Encontra o elemento com o ID "page-" + pageName e remove o 'hidden'
+          const activePage = document.getElementById('page-'+ pageName);
+          if (activePage) {
+            activePage.classList.remove('hidden');
+          }
+          
+          // 3. Atualiza o estilo "ativo" do menu
+          //    Para cada 'button' na lista 'navButtons'...
+          navButtons.forEach(button => {
+            // Se o 'data-page' do botão for o mesmo que 'pageName'...
+            if (button.dataset.page === pageName) {
+              button.classList.add('active'); // Adiciona o destaque azul
+            } else {
+              button.classList.remove('active'); // Remove o destaque
+            }
+          });
+        }
+        
+        // "Ouvidor" de Eventos do Menu de Navegação
+        // Diz ao 'navMenu' para esperar por um 'click'
+        navMenu.addEventListener('click', (e) => {
+          // 'e.target' é o elemento exato que foi clicado
+          // '.closest('.nav-item')' encontra o botão "pai" mais próximo
+          const button = e.target.closest('.nav-item');
+          
+          // Se um botão foi realmente clicado (e ele tem um 'data-page')
+          if (button && button.dataset.page) {
+            // Pega o nome da página (ex: "home")
+            const pageName = button.dataset.page;
+            // Chama nossa função para mostrar a página
+            showPage(pageName);
+          }
+        });
+        
+        // Define a página inicial
+        // (Garante que o site comece na "home" com o estilo correto)
+        showPage('home');
+
+    });
+</script>
 </body>
 </html>
