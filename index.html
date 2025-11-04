@@ -5,8 +5,141 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário de Autodeclaração</title>
     <base target="_top">
-</head>
-<body>
+    <!-- 1. Carregar o Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     
+    <!-- 2. Estilos customizados -->
+    <style>
+      /* Usado para o círculo giratório de "carregando" */
+      #loader {
+        border: 8px solid #f3f3f3;
+        border-top: 8px solid #06B6D4; /* Azul (Cyan) */
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        animation: spin 2s linear infinite;
+      }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      /* Esta é a classe MÁGICA que faz o SPA funcionar */
+      /* Qualquer coisa com .hidden será escondida */
+      /*
+      .hidden {
+        display: none;
+      }
+      */
+      /* Estilo para o botão do menu ativo */
+      .nav-item.active {
+        background-color: #0E7490; /* Azul (Cyan) mais escuro */
+        color: #ffffff;
+      }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans flex flex-col min-h-screen antialiased">
+
+    <!-- 
+      =================================================================
+      COMO ADICIONAR IMAGENS DO GOOGLE DRIVE (LEMBRETE)
+      =================================================================
+      1. Suba a imagem (PNG/JPG) para o Google Drive.
+      2. Clique com o botão direito -> "Compartilhar".
+      3. Mude a permissão de "Restrito" para "Qualquer pessoa com o link".
+      4. Copie o link de compartilhamento (ex: .../d/ID_DO_ARQUIVO/view...).
+      5. Pegue apenas o "ID_DO_ARQUIVO".
+      6. Use o formato de link "thumbnail" no 'src' da imagem:
+         src="https://drive.google.com/thumbnail?id=ID_DO_ARQUIVO"
+      =================================================================
+    -->
+
+    <!-- ========================
+         CABEÇALHO (Header)
+         ======================== -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto max-w-5xl p-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="https://drive.google.com/thumbnail?id=1rCzUb7MYvlP5xWVL8sVusdkMgr9EgKAU" alt="Imagem do Logo da Prefeitura de Porto Ferreira" class="h-10 sm:h-12">
+            </div>
+            <h1 class="text-base sm:text-xl font-bold text-gray-700 text-right">
+                Política de Equidade Racial
+            </h1>
+        </div>
+    </header>
+    <!-- ========================
+         MENU DE NAVEGAÇÃO (Nav)
+         ======================== -->
+    <nav class="bg-cyan-600 text-white shadow-lg sticky top-0 z-40">
+        <div id="navigationMenu" class="container mx-auto max-w-5xl flex justify-center flex-wrap">
+            <!-- Nossos 6 botões. O 'data-page' é o que o JavaScript vai usar -->
+            <button data-page="home" class="nav-item active py-3 px-4 sm:px-5 font-medium hover:bg-cyan-700 transition duration-150 text-sm sm:text-base">
+                Home
+            </button>
+            <button data-page="form" class="nav-item py-3 px-4 sm:px-5 font-medium hover:bg-cyan-700 transition duration-150 text-sm sm:text-base">
+                Formulário
+            </button>
+            <button data-page="lgpd" class="nav-item py-3 px-4 sm:px-5 font-medium hover:bg-cyan-700 transition duration-150 text-sm sm:text-base">
+                LGPD
+            </button>
+            <button data-page="faq" class="nav-item py-3 px-4 sm:px-5 font-medium hover:bg-cyan-700 transition duration-150 text-sm sm:text-base">
+                Dúvidas
+            </button>
+            <button data-page="contato" class="nav-item py-3 px-4 sm:px-5 font-medium hover:bg-cyan-700 transition duration-150 text-sm sm:text-base">
+                Contato
+            </button>
+            <button data-page="estatisticas" class="nav-item py-3 px-4 sm:px-5 font-medium hover:bg-cyan-700 transition duration-150 text-sm sm:text-base">
+                Estatísticas
+            </button>
+        </div>
+    </nav>
+    <!-- ========================
+         CONTEÚDO PRINCIPAL (Main)
+         ======================== -->    
+    <main class="container mx-auto p-4 sm:p-8 max-w-3xl flex-grow">
+
+        <!-- Página 1: Home (Visível por padrão) -->
+        <div id="page-home" class="page-content bg-white p-6 sm:p-10 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Guia Home</h2>
+            <p>Em construção... Aqui ficará a apresentação, logos, etc.</p>
+        </div>
+
+        <!-- Página 2: Formulário (Escondida) -->
+        <div id="page-form" class="page-content hidden bg-white p-6 sm:p-10 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Guia Formulário</h2>
+            <p>Em construção... Aqui ficará o formulário.</p>
+        </div>
+        
+        <!-- Página 3: LGPD (Escondida) -->
+        <div id="page-lgpd" class="page-content hidden bg-white p-6 sm:p-10 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Guia LGPD</h2>
+            <p>Em construção... Aqui ficarão os textos da lei.</p>
+        </div>
+        
+        <!-- Página 4: FAQ (Escondida) -->
+        <div id="page-faq" class="page-content hidden bg-white p-6 sm:p-10 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Guia Dúvidas (FAQ)</h2>
+            <p>Em construção... Aqui ficarão as perguntas e respostas.</p>
+        </div>
+        
+        <!-- Página 5: Contato (Escondida) -->
+        <div id="page-contato" class="page-content hidden bg-white p-6 sm:p-10 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Guia Contato</h2>
+            <p>Em construção... Aqui ficarão os telefones e e-mails.</p>
+        </div>
+        
+        <!-- Página 6: Estatísticas (Escondida) -->
+        <div id="page-estatisticas" class="page-content hidden bg-white p-6 sm:p-10 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Guia Estatísticas</h2>
+            <p>Em construção... Aqui ficará o login e os gráficos.</p>
+        </div>
+
+    </main>
+    <!-- ========================
+         RODAPÉ (Footer)
+         ======================== -->
+    <footer class="text-center text-gray-500 text-sm py-8">
+        © 2025 Secretaria de Educação de Porto Ferreira | Desenvolvido com Google Apps Script
+    </footer>
 </body>
 </html>
