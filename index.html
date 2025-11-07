@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário de Autodeclaração</title>
     <base target="_top">
-    <!-- 1. Carregar o Tailwind CSS -->
+    
+    <!-- 1. Carregar o Tailwind CSS (Link Corrigido) -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- 2. Estilos customizados -->
@@ -25,8 +26,7 @@
       }
       
       /* Esta é a classe MÁGICA que faz o SPA funcionar */
-      /* Qualquer coisa com .hidden será escondida */
-      
+      /* (Reativada e correta) */
       .hidden {
         display: none;
       }
@@ -55,29 +55,36 @@
     -->
 
     <!-- ========================
-         CABEÇALHO (Header)
+         CABEÇALHO (Header) - SEU LAYOUT FINAL (2/8 + 6/8)
          ======================== -->
     <header class="bg-white shadow-md">
         <div class="container mx-auto max-w-5xl p-4 grid grid-cols-8 items-center gap-8">
+            
+            <!-- Coluna 1: 2/8 (Logo CENTRALIZADO) -->
             <div class="col-span-2 flex justify-center">
+                <!-- LINK DA IMAGEM CORRIGIDO -->
                 <img src="https://drive.google.com/thumbnail?id=1rCzUb7MYvlP5xWVL8sVusdkMgr9EgKAU" alt="Imagem do Logo da Prefeitura de Porto Ferreira" class="h-28 sm:h-28">
             </div>
+
+            <!-- Coluna 2: 6/8 (Texto alinhado à ESQUERDA) -->
             <div class="col-span-6 text-left">
-                <h1 class="text-2xl sm:text-3xl font-bold text-gray-800">
+                <!-- H1 GRANDE (Corrigido) -->
+                <h1 class="text-2xl sm:text-4xl font-bold text-gray-800">
                     Política de Equidade Racial
                 </h1>
                 <p class="text-lg text-gray-500">
                     Ferramenta de auto declaração de cor/raça
                 </p>
             </div>
+            
         </div>
     </header>
+    
     <!-- ========================
          MENU DE NAVEGAÇÃO (Nav)
          ======================== -->
     <nav class="bg-cyan-600 text-white shadow-lg sticky top-0 z-40">
         <div id="navigationMenu" class="container mx-auto max-w-5xl flex justify-center flex-wrap">
-            <!-- Nossos 6 botões. O 'data-page' é o que o JavaScript vai usar -->
             <button data-page="home" class="nav-item active py-3 px-4 sm:px-5 font-medium hover:bg-cyan-700 transition duration-150 text-sm sm:text-base">
                 Home
             </button>
@@ -98,6 +105,7 @@
             </button>
         </div>
     </nav>
+    
     <!-- ========================
          CONTEÚDO PRINCIPAL (Main)
          ======================== -->    
@@ -105,14 +113,11 @@
 
         <!-- Página 1: Home (Visível por padrão) -->
         <div id="page-home" class="page-content bg-white p-6 sm:p-10 rounded-lg shadow-lg">
+            
+            <!-- H2 MENOR (Corrigido) -->
             <h2 class="text-xl sm:text-2xl font-bold text-gray-800 mb-6 border-b pb-3">
                 Bem-vindo(a)!
             </h2>
-            <!-- 
-              'prose' é uma classe do Tailwind que formata automaticamente
-              parágrafos, listas, etc. (como no Word) 
-            -->
-
              <div class="prose prose-lg max-w-none text-gray-700 space-y-4 text-justify">
                 <p>
                     Olá, aluno(a)! Esta é a plataforma da Secretaria de Educação de Porto Ferreira para a Autodeclaração de Cor/Raça.
@@ -123,139 +128,173 @@
                 <p>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non, hic reprehenderit iure placeat porro nostrum. Reiciendis asperiores dolor dolores eligendi, eius assumenda sunt earum repellat, excepturi inventore vero commodi porro!Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non, hic reprehenderit iure placeat porro nostrum. Reiciendis asperiores dolor dolores eligendi, eius assumenda sunt earum repellat, excepturi inventore vero commodi porro!Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non, hic reprehenderit iure placeat porro nostrum. Reiciendis asperiores dolor dolores eligendi, eius assumenda sunt earum repellat, excepturi inventore vero commodi porro!
                 </p>
-            <!-- 
-                  Lembrete: Use o formato thumbnail?id=... 
-                  Substitua este placeholder por uma imagem do Google Drive
-            -->
+                
+                <!-- LINK DA IMAGEM CORRIGIDO -->
                 <img src="https://drive.google.com/thumbnail?id=1FMoY4e-7z6jC28k67Tl9UkWFnBc5ELQO" alt="Imagem ilustrativa sobre equidade" class="rounded-lg shadow-md w-full my-6">
                 
                 <p>
                     Se tiver qualquer dúvida, clique na guia "Dúvidas" ou "Contato" no menu acima.
                 </p>
-            <!-- Este botão vai pular para a Guia Formulário -->
+                <!-- Este botão vai pular para a Guia Formulário -->
                 <div class="text-center pt-6">
                     <button id="goToFormButton" class="inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500">
                         Começar a Preencher
                     </button>
+                </div>
+             </div>
         </div>
 
         <!-- Página 2: Formulário (Escondida) -->
         <div id="page-form" class="page-content hidden bg-white p-6 sm:p-10 rounded-lg shadow-lg">
+            
             <form id="declaracaoForm">
+                <!-- H2 MENOR (Corrigido) -->
                 <h2 class="text-xl sm:text-2xl font-bold text-gray-800 mb-6">
                     Formulário de Declaração
                 </h2>
-                <p>
+                <p class="text-gray-600 mb-8">
                     Preencha com calma. Se tiver dúvida, peça ajuda a um adulto.
                 </p>
+
+                <!-- Seção 0: Escola (Em construção...) -->
+                <fieldset class="mb-8">
+                    <legend class="text-xl font-semibold text-gray-700 mb-4 border-b pb-2">
+                        Sua Escola
+                    </legend>
+                    <div class="grid grid-cols-1 gap-4">
+                        <p>Em construção...</p>
+                    </div>
+                </fieldset>
+
+                <!-- Seção 1: Dados do Aluno (Em construção...) -->
+                <fieldset class="mb-8">
+                    <legend class="text-xl font-semibold text-gray-700 mb-4 border-b pb-2">
+                        1. Seus Dados
+                    </legend>
+                    <div id="form-secao-1" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <p>Em construção...</p>
+                    </div>
+                </fieldset>
+
+                <!-- O resto do formulário (Em construção...) -->
+                 <p>... O restante do formulário será construído aqui ...</p>
+                 
             </form>
+
         </div>
         
         <!-- Página 3: LGPD (Escondida) -->
         <div id="page-lgpd" class="page-content hidden bg-white p-6 sm:p-10 rounded-lg shadow-lg">
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">Guia LGPD</h2>
+            <h2 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4">Guia LGPD</h2>
             <p>Em construção... Aqui ficarão os textos da lei.</p>
         </div>
         
         <!-- Página 4: FAQ (Escondida) -->
         <div id="page-faq" class="page-content hidden bg-white p-6 sm:p-10 rounded-lg shadow-lg">
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">Guia Dúvidas (FAQ)</h2>
+            <h2 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4">Guia Dúvidas (FAQ)</h2>
             <p>Em construção... Aqui ficarão as perguntas e respostas.</p>
         </div>
         
         <!-- Página 5: Contato (Escondida) -->
         <div id="page-contato" class="page-content hidden bg-white p-6 sm:p-10 rounded-lg shadow-lg">
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">Guia Contato</h2>
+            <h2 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4">Guia Contato</h2>
             <p>Em construção... Aqui ficarão os telefones e e-mails.</p>
         </div>
         
         <!-- Página 6: Estatísticas (Escondida) -->
         <div id="page-estatisticas" class="page-content hidden bg-white p-6 sm:p-10 rounded-lg shadow-lg">
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">Guia Estatísticas</h2>
+            <h2 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4">Guia Estatísticas</h2>
             <p>Em construção... Aqui ficará o login e os gráficos.</p>
         </div>
 
     </main>
+    
     <!-- ========================
          RODAPÉ (Footer)
          ======================== -->
     <footer class="text-center text-gray-500 text-sm py-8">
         © 2025 Secretaria de Educação de Porto Ferreira | Desenvolvido com Google Apps Script
     </footer>
+    
     <!-- ========================
-     JAVASCRIPT (Cliente)
-     ======================== -->
-<script>
-    // Espera o documento HTML carregar antes de executar o script
-    document.addEventListener('DOMContentLoaded', (event) => {
-        
-        // === ELEMENTOS DO DOM (Referências) ===
-        // "Guardamos" os elementos que vamos usar várias vezes
-        const navMenu = document.getElementById('navigationMenu');
-        const navButtons = navMenu.querySelectorAll('.nav-item');
-        const pages = document.querySelectorAll('.page-content');
-        const goToFormButton = document.getElementById('goToFormButton');
-        
-        // === LÓGICA DE NAVEGAÇÃO (SPA) ===
+         JAVASCRIPT (Cliente) - 100% CORRIGIDO
+         ======================== -->
+    <script>
+        // Espera o documento HTML carregar antes de executar o script
+        // ESTE É O "CONTRATO PRINCIPAL"
+        document.addEventListener('DOMContentLoaded', (event) => {
+            
+            // === ELEMENTOS DO DOM (Referências) ===
+            // "Guardamos" os elementos que vamos usar várias vezes
+            const navMenu = document.getElementById('navigationMenu');
+            
+            // CORREÇÃO: Adicionamos uma verificação. Se 'navMenu' não for encontrado (null),
+            // 'navButtons' se torna uma lista vazia, evitando o erro.
+            const navButtons = navMenu ? navMenu.querySelectorAll('.nav-item') : [];
+            
+            const pages = document.querySelectorAll('.page-content');
+            const goToFormButton = document.getElementById('goToFormButton');
+            
+            // === LÓGICA DE NAVEGAÇÃO (SPA) ===
 
-        /**
-         * Mostra uma página (guia) e esconde as outras
-         * @param {string} pageName - O nome da página (ex: "home", "form")
-         */
-        function showPage(pageName) {
-          
-          // 1. Esconde todas as páginas
-          //    Para cada 'page' na lista 'pages', adiciona a classe 'hidden'
-          pages.forEach(page => {
-            page.classList.add('hidden');
-          });
-          
-          // 2. Mostra a página solicitada
-          //    Encontra o elemento com o ID "page-" + pageName e remove o 'hidden'
-          const activePage = document.getElementById('page-'+ pageName);
-          if (activePage) {
-            activePage.classList.remove('hidden');
-          }
-          
-          // 3. Atualiza o estilo "ativo" do menu
-          //    Para cada 'button' na lista 'navButtons'...
-          navButtons.forEach(button => {
-            // Se o 'data-page' do botão for o mesmo que 'pageName'...
-            if (button.dataset.page === pageName) {
-              button.classList.add('active'); // Adiciona o destaque azul
-            } else {
-              button.classList.remove('active'); // Remove o destaque
+            /**
+             * Mostra uma página (guia) e esconde as outras
+             * @param {string} pageName - O nome da página (ex: "home", "form")
+             */
+            function showPage(pageName) {
+                
+                // 1. Esconde todas as páginas
+                pages.forEach(page => {
+                    page.classList.add('hidden');
+                });
+                
+                // 2. Mostra a página solicitada (CORRIGIDO)
+                const activePage = document.getElementById('page-' + pageName);
+                if (activePage) {
+                    activePage.classList.remove('hidden');
+                }
+                
+                // 3. Atualiza o estilo "ativo" do menu
+                // CORREÇÃO: Verificamos se 'navButtons' existe antes de usá-lo
+                if (navButtons) {
+                    navButtons.forEach(button => {
+                        if (button.dataset.page === pageName) {
+                            button.classList.add('active'); // Adiciona o destaque azul
+                        } else {
+                            button.classList.remove('active'); // Remove o destaque
+                        }
+                    });
+                }
             }
-          });
-        }
-        
-        // "Ouvidor" de Eventos do Menu de Navegação
-        // Diz ao 'navMenu' para esperar por um 'click'
-        navMenu.addEventListener('click', (e) => {
-          // 'e.target' é o elemento exato que foi clicado
-          // '.closest('.nav-item')' encontra o botão "pai" mais próximo
-          const button = e.target.closest('.nav-item');
-          
-          // Se um botão foi realmente clicado (e ele tem um 'data-page')
-          if (button && button.dataset.page) {
-            // Pega o nome da página (ex: "home")
-            const pageName = button.dataset.page;
-            // Chama nossa função para mostrar a página
-            showPage(pageName);
-          }
-        
-        });
-        // "Ouvidor" para o botão "Começar a Preencher"
-            goToFormButton.addEventListener('click', () => {
-        // Chama nossa função para pular direto para a página "form"
-            showPage('form');
-        });
-        
-        // Define a página inicial
-        // (Garante que o site comece na "home" com o estilo correto)
-        showPage('home');
+            
+            // "Ouvidor" de Eventos do Menu de Navegação
+            // (Eletricista 1)
+            // CORREÇÃO: Verificamos se 'navMenu' existe antes de adicionar um 'ouvidor'
+            if (navMenu) {
+                navMenu.addEventListener('click', (e) => {
+                    const button = e.target.closest('.nav-item');
+                    
+                    if (button && button.dataset.page) {
+                        const pageName = button.dataset.page;
+                        showPage(pageName);
+                    }
+                }); // <-- FIM DO ELETRICISTA 1
+            }
+            
+            // "Ouvidor" para o botão "Começar a Preencher"
+            // (Eletricista 2)
+            // CORREÇÃO: Verificamos se 'goToFormButton' existe
+            if (goToFormButton) {
+                goToFormButton.addEventListener('click', () => {
+                    showPage('form');
+                });
+            }
+            
+            // Define a página inicial
+            // (Eletricista 3 - AGORA ESTÁ DENTRO DO CONTRATO)
+            showPage('home');
 
-    });
-</script>
+        }); // <-- FIM DO "CONTRATO PRINCIPAL"
+    </script>
 </body>
 </html>
