@@ -466,6 +466,77 @@
                             </div>
                         </div>
                     </div>
+<!-- Autodeclaração de Cor/Raça/Etnia ========================== -->
+                    <div class="mt-8 p-4 bg-gray-50 rounded-lg">
+                        <h3 class="text-lg font-medium text-gray-700 mb-4">
+                            Autodeclaração de Cor/Raça/Etnia
+                        </h3>
+                        <p class="text-sm text-gray-700 mb-6">
+                            Selecione a cor/raça/etnia do aluno. É obrigatório marcar pelo menos uma opção.
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Botão 1 Branco ========================================== -->
+                            <div class="flex flex-col items-center p-4 border-2 border-gray-300 rounded-lg hover:border-cyan-500 hover:bg-cyan-50 transition-all cursor-pointer">
+                                <div class="w-24 h-32 bg-gray-200 rounded-md mb-3 flex items-center justify-center">
+                                    <img src="" alt="Silhueta Branco" class="w-full h-full object-cover rounded-md">
+                                </div>
+                                <div class="flex items-center w-full justify-center">
+                                    <input type="radio" id="cor_branco" name="corRaca" value="Branco" required class="h-4 w-4 text-cyan-600 border-gray-300 focus:ring-cyan-500">
+                                    <label for="cor_branco" class="ml-2 text-sm font-medium text-gray-700">Branco</label>
+                                </div>
+                            </div>
+<!-- Botão 2 Preto ========================================== --> 
+                            <div class="flex flex-col items-center p-4 border-2 border-gray-300 rounded-lg hover:border-cyan-500 hover:bg-cyan-50 transition-all cursor-pointer">
+                                <div class="w-24 h-32 bg-gray-200 rounded-md mb-3 flex items-center justify-center">
+                                    <img src="" alt="Silhueta Preto" class="w-full h-full object-cover rounded-md">
+                                </div>
+                                <div class="flex items-center w-full justify-center">
+                                    <input type="radio" id="cor_preto" name="corRaca" value="Preto" required class="h-4 w-4 text-cyan-600 border-gray-300 focus:ring-cyan-500">
+                                    <label for="cor_preto" class="ml-2 text-sm font-medium text-gray-700">Preto</label>
+                                </div>
+                            </div>
+<!-- Botão 3 Pardo ========================================== -->
+                            <div class="flex flex-col items-center p-4 border-2 border-gray-300 rounded-lg hover:border-cyan-500 hover:bg-cyan-50 transition-all cursor-pointer">
+                                <div class="w-24 h-32 bg-gray-200 rounded-md mb-3 flex items-center justify-center">
+                                    <img src="" alt="Silhueta Pardo" class="w-full h-full object-cover rounded-md">
+                                </div>
+                                <div class="flex items-center w-full justify-center">
+                                    <input type="radio" id="cor_pardo" name="corRaca" value="Pardo" required class="h-4 w-4 text-cyan-600 border-gray-300 focus:ring-cyan-500">
+                                    <label for="cor_pardo" class="ml-2 text-sm font-medium text-gray-700">Pardo</label>
+                                </div>
+                            </div>
+<!-- Botão 4 Amarelo ========================================== -->
+                            <div class="flex flex-col items-center p-4 border-2 border-gray-300 rounded-lg hover:border-cyan-500 hover:bg-cyan-50 transition-all cursor-pointer">
+                                <div class="w-24 h-32 bg-gray-200 rounded-md mb-3 flex items-center justify-center">
+                                <img src="" alt="Silhueta Amarelo" class="w-full h-full object-cover rounded-md">
+                                </div>
+                                <div class="flex items-center w-full justify-center">
+                                <input type="radio" id="cor_amarelo" name="corRaca" value="Amarelo" required class="h-4 w-4 text-cyan-600 border-gray-300 focus:ring-cyan-500">
+                                <label for="cor_amarelo" class="ml-2 text-sm font-medium text-gray-700">Amarelo</label>
+                                </div>
+                            </div>
+<!-- Botão 5 Indígena ========================================== -->
+                            <div class="flex flex-col items-center p-4 border-2 border-gray-300 rounded-lg hover:border-cyan-500 hover:bg-cyan-50 transition-all cursor-pointer">
+                                <div class="w-24 h-32 bg-gray-200 rounded-md mb-3 flex items-center justify-center">
+                                    <img src="" alt="Silhueta Indígena" class="w-full h-full object-cover rounded-md">
+                                </div>
+                                <div class="flex items-center w-full justify-center">
+                                    <input type="radio" id="cor_indigena" name="corRaca" value="Indígena" required class="h-4 w-4 text-cyan-600 border-gray-300 focus:ring-cyan-500">
+                                    <label for="cor_indigena" class="ml-2 text-sm font-medium text-gray-700">Indígena</label>
+                                </div>
+                            </div>
+<!-- Botão 6 Não declarado ==================================== -->
+                            <div class="flex flex-col items-center p-4 border-2 border-gray-300 rounded-lg hover:border-cyan-500 hover:bg-cyan-50 transition-all cursor-pointer">
+                                <div class="w-24 h-32 bg-gray-200 rounded-md mb-3 flex items-center justify-center">
+                                    <img src="" alt="Silhueta Não Declarado" class="w-full h-full object-cover rounded-md">
+                                </div>
+                                <div class="flex items-center w-full justify-center">
+                                    <input type="radio" id="cor_naodeclarado" name="corRaca" value="Não Declarado" required class="h-4 w-4 text-cyan-600 border-gray-300 focus:ring-cyan-500">
+                                    <label for="cor_naodeclarado" class="ml-2 text-sm font-medium text-gray-700">Não Declarado</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 <!-- LGPD e botão submeter =================================== -->
                     <div class="mt-8 p-4 bg-gray-50 rounded-lg">
                         <h3 class="text-lg font-medium text-gray-700 mb-3">
@@ -507,13 +578,215 @@
                 </fieldset>                
             </form>
         </div>       
-<!-- Página 3: LGPD (Escondida) -->
-        <div id="page-lgpd" class="page-content hidden bg-white p-6 sm:p-10 rounded-lg shadow-lg">
-            <h2 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4">Guia LGPD</h2>
-            <p>Em construção... Aqui ficarão os textos da lei.</p>
-        </div>
+<!-- Página 3: LGPD (Escondida) ============================================================================================================= -->
         
-        <!-- Página 4: FAQ (Escondida) -->
+        <div id="page-lgpd" class="page-content hidden bg-white p-6 sm:p-10 rounded-lg shadow-lg">
+
+<!-- Cabeçalho da página -->
+            <div class="mb-12">
+                <h1 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-3">
+                    Lei Geral de Proteção de Dados (LGPD)
+                </h1>
+                <p class="text-base sm:text-lg text-gray-600">
+                Entenda como seus dados são protegidos e por que pedimos essas informações.
+                </p>
+            </div>
+<!-- Bloco 1: O que é LGPD? (Texto esquerda 2 colunas + Imagem direita 1 coluna) ============================================================ -->
+            <div class="mb-16">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+<!-- Texto (2 colunas) ====================================================================================================================== -->
+                    <div class="md:col-span-2">
+                        <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+                        O que é LGPD?
+                        </h2>
+                        <p class="text-base text-gray-700 mb-3">
+                        A LGPD (Lei Geral de Proteção de Dados) é uma lei brasileira que protege
+                        seus dados pessoais. Ela foi criada para garantir que empresas, órgãos públicos
+                        e escolas usem suas informações de forma segura e responsável.
+                        </p>
+                        <p class="text-base text-gray-700 mb-3">
+                        Assim como você tem o direito de guardar seus segredos em casa, a LGPD
+                        garante que seus dados pessoais sejam guardados com cuidado e segurança,
+                        sem serem vendidos ou usados sem sua permissão.
+                        </p>
+                        <p class="text-base text-gray-700">
+                        A lei existe desde 2020 e é uma das mais avançadas do mundo quando o assunto
+                        é proteger a privacidade das pessoas.
+                        </p>
+                    </div>
+<!-- Imagem (1 coluna) ====================================================================================================================== -->
+                    <div class="md:col-span-1">
+                        <div class="w-full h-64 bg-gray-200 rounded-lg flex items-center justify-center">
+                            <img src="" alt="O que é LGPD" class="w-full h-full object-cover rounded-lg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!-- Bloco 2: Por que usamos LGPD? (Imagem esquerda 1 coluna + Texto direita 2 colunas) ===================================================== -->
+            <div class="mb-16">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+                Por que usamos LGPD neste formulário?
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">     
+<!-- Imagem (1 coluna) -->
+                <div class="md:col-span-1">
+                    <div class="w-full h-64 bg-gray-200 rounded-lg flex items-center justify-center">
+                        <img src="" alt="Por que usamos LGPD" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                </div>
+<!-- Texto (2 colunas) -->
+                <div class="md:col-span-2">
+                    <p class="text-base text-gray-700 mb-3">
+                    Quando você preenche este formulário com dados do aluno, nós coletamos informações
+                    como nome, data de nascimento, endereço e necessidades especiais. A LGPD nos obriga
+                    a ser transparentes sobre isso.
+                    </p>
+                    <p class="text-base text-gray-700 mb-3">
+                    Isso significa que você tem o direito de saber:
+                    </p>
+                    <ul class="list-disc list-inside text-base text-gray-700 mb-3 space-y-1">
+                        <li>Quais dados estamos coletando.</li>
+                        <li>Por que estamos coletando (para organizar a educação do aluno).</li>
+                        <li>Como vamos guardar (com segurança).</li>
+                        <li>Quem pode acessar (apenas a escola e a Secretaria de Educação).</li>
+                    </ul>
+                    <p class="text-base text-gray-700">
+                    É por isso que pedimos sua autorização antes de salvar os dados.
+                    </p>
+                </div>
+            </div>
+        </div>
+<!-- Bloco 3: Como você é protegido? (Texto 3 colunas acima + Imagem 3 colunas abaixo) ====================================================== -->
+        <div class="mb-16">
+    
+<!-- Título ================================================================================================================================= -->
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">
+            Como você é protegido pela LGPD?
+            </h2>
+<!-- Texto em 3 colunas ===================================================================================================================== -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div>
+                    <h3 class="text-lg font-semibold text-cyan-600 mb-2">
+                     Direito de Acesso
+                    </h3>
+                    <p class="text-base text-gray-700">
+                    Você pode pedir à escola para ver quais dados foram guardados sobre o aluno
+                    e para que estão sendo usados.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-cyan-600 mb-2">
+                    Direito de Correção
+                    </h3>
+                    <p class="text-base text-gray-700">
+                    Se alguma informação estiver errada, você pode pedir para a escola corrigir.
+                    Por exemplo, um telefone digitado errado ou um endereço incompleto.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-cyan-600 mb-2">
+                    Direito de Recusa
+                    </h3>
+                    <p class="text-base text-gray-700">
+                    Você pode retirar sua autorização a qualquer momento, e a escola deve parar
+                    de usar os dados do aluno, exceto se houver obrigação legal.
+                    </p>
+                </div>
+            </div>
+<!-- Imagem abaixo (3 colunas) ============================================================================================================== -->
+            <div class="w-full h-80 bg-gray-200 rounded-lg flex items-center justify-center">
+                <img src="" alt="Como você é protegido" class="w-full h-full object-cover rounded-lg">
+            </div>
+        </div>
+<!-- Bloco 4: Como a escola usa e guarda seus dados? (Texto esquerda 2 colunas + Imagem direita 1 coluna) =================================== -->
+        <div class="mb-16">
+<!-- Título -->
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">
+            Como a escola usa e guarda seus dados?
+            </h2> 
+<!-- Grid com texto e imagem ================================================================================================================ -->          
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+<!-- Texto (2 colunas) ====================================================================================================================== -->
+            <div class="md:col-span-2">
+                <p class="text-base text-gray-700 mb-3">
+                Os dados que você fornece neste formulário são guardados em servidores seguros
+                e protegidos. Apenas os colaboradores da escola e da Secretaria de Educação
+                têm acesso a essas informações.
+                </p>
+                <p class="text-base text-gray-700 mb-3">
+                Os dados são usados para:
+                </p>
+                <ul class="list-disc list-inside text-base text-gray-700 mb-3 space-y-1">
+                    <li>Organizar as turmas e horários do aluno.</li>
+                    <li>Identificar necessidades especiais e oferecer suporte adequado.</li>
+                    <li>Gerar relatórios para políticas públicas de educação.</li>
+                    <li>Manter contato com responsáveis em caso de emergência.</li>
+                </ul>
+                    <p class="text-base text-gray-700">
+                    Os dados são guardados pelo tempo que o aluno estiver na escola e, após isso,
+                    são deletados de forma segura, conforme a lei exige.
+                    </p>
+            </div>
+<!-- Imagem (1 coluna) ====================================================================================================================== -->
+            <div class="md:col-span-1">
+                <div class="w-full h-64 bg-gray-200 rounded-lg flex items-center justify-center">
+                    <img src="" alt="Como a escola usa seus dados" class="w-full h-full object-cover rounded-lg">
+                </div>
+            </div>
+        </div>
+<!-- Bloco 5: Como exercer seus direitos? (Cards de contato) ================================================================================ -->   
+        <div class="mb-16">
+<!-- Título ================================================================================================================================= -->
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">
+            Como exercer seus direitos?
+            </h2>
+<!-- Texto introdutório ===================================================================================================================== -->
+            <p class="text-base text-gray-700 mb-6">
+            Se você tiver dúvidas ou quiser exercer seus direitos (acessar, corrigir ou deletar dados),
+            entre em contato com a escola ou a Secretaria de Educação pelos dados abaixo:
+            </p>
+<!-- Cards de contato ======================================================================================================================= -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<!-- Card 1: Secretaria de Educação ========================================================================================================= -->
+                <div class="p-6 border-2 border-cyan-600 rounded-lg bg-cyan-50">
+                    <h3 class="text-lg font-semibold text-cyan-600 mb-3">
+                    Secretaria de Educação
+                    </h3>
+                    <p class="text-base text-gray-700 mb-2">
+                        <strong>Telefone:</strong> (XX) XXXX-XXXX
+                    </p>
+                    <p class="text-base text-gray-700 mb-2">
+                        <strong>Email:</strong> educacao@prefeitura.gov.br
+                    </p>
+                    <p class="text-base text-gray-700">
+                        <strong>Endereço:</strong> Rua das Flores, 123 - Centro
+                    </p>
+                </div>
+<!-- Card 2: Sua Escola ===================================================================================================================== -->
+                <div class="p-6 border-2 border-cyan-600 rounded-lg bg-cyan-50">
+                    <h3 class="text-lg font-semibold text-cyan-600 mb-3">
+                    Sua Escola
+                    </h3>
+                    <p class="text-base text-gray-700 mb-2">
+                        <strong>Telefone:</strong> (XX) XXXX-XXXX
+                    </p>
+                    <p class="text-base text-gray-700 mb-2">
+                        <strong>Email:</strong> escola@prefeitura.gov.br
+                    </p>
+                    <p class="text-base text-gray-700">
+                        <strong>Endereço:</strong> Av. Principal, 456 - Bairro
+                    </p>
+                </div>
+            </div>
+<!-- Box de destaque ======================================================================================================================== -->
+            <div class="p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded">
+                <p class="text-base text-gray-700">
+                    <strong>Importante:</strong> Você não precisa pagar nada para exercer seus direitos.
+                A escola e a Secretaria de Educação devem responder seu pedido em até 15 dias úteis.
+                </p>
+            </div>
+        </div>
+<!-- Página 4: FAQ (Escondida) ============================================================================================================== -->
         <div id="page-faq" class="page-content hidden bg-white p-6 sm:p-10 rounded-lg shadow-lg">
             <h2 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4">Guia Dúvidas (FAQ)</h2>
             <p>Em construção... Aqui ficarão as perguntas e respostas.</p>
