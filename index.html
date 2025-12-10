@@ -2950,6 +2950,97 @@
                     }
                 });
             }
+// =======================================================================================================================
+// LÓGICA DO FORMULÁRIO (ENVIO DE DADOS)
+// =======================================================================================================================
+            
+            const formDeclaracao = document.getElementById('declaracaoForm');
+
+            if (formDeclaracao) {
+                formDeclaracao.addEventListener('submit', function(e) {
+// 1. IMPEDE O RECARREGAMENTO DA PÁGINA
+                    e.preventDefault();
+
+// Feedback Visual (Botão carregando)
+                    const btnEnviar = this.querySelector('button[type="submit"]');
+                    const textoOriginal = btnEnviar.innerText;
+                    btnEnviar.disabled = true;
+                    btnEnviar.innerText = "Enviando...";
+
+// 2. COLETA OS DADOS DO HTML
+                    
+// Tratamento para Checkboxes (Necessidades)
+                    const necessidadesCheckboxes = document.querySelectorAll('input[name="necessidades"]:checked');
+                    let listaNecessidades = [];
+                    necessidadesCheckboxes.forEach((checkbox) => {
+                        listaNecessidades.push(checkbox.value);
+                    });
+
+// Tratamento para LGPD
+                    const lgpdCheck = document.getElementById('lgpdConsent');
+                    
+                    const dados = {
+                        nomeMaeAluno: document.getElementById('nomeMaeAluno').value,
+                        nomePaiAluno: document.getElementById('nomePaiAluno').value,
+                        cpfResponsavel: document.getElementById('cpfResponsavel').value,
+                        contato1: document.getElementById('contato1').value,
+                        contato2: document.getElementById('contato2').value,
+                        contato3: document.getElementById('contato3').value,
+                        
+// Radios (Usa ?.value para não quebrar se vazio)
+                        rendaFamiliar: document.querySelector('input[name="rendaFamiliar"]:checked')?.value || "",
+                        tem_programa_social: document.querySelector('input[name="tem_programa_social"]:checked')?.value || "",
+                        
+                        escola: document.getElementById('escola').value,
+                        nomeAluno: document.getElementById('nomeAluno').value,
+                        dataNascimento: document.getElementById('dataNascimento').value,
+                        idade: document.getElementById('idade').value,
+                        
+                        logradouro: document.getElementById('logradouro').value,
+                        numero: document.getElementById('numero').value,
+                        complemento: document.getElementById('complemento').value,
+                        bairro: document.getElementById('bairro').value, 
+                        cidade: document.getElementById('cidade').value,
+                        estadoNascimento: document.getElementById('estadoNascimento').value,
+                        cidadeNascimento: document.getElementById('cidadeNascimento').value,
+                        
+                        cpf: document.getElementById('cpf').value,
+                        ra: document.getElementById('ra').value,
+                        
+                        transporteEscolar: document.querySelector('input[name="transporteEscolar"]:checked')?.value || "",
+                        
+                        necessidades: listaNecessidades,
+                        necOutroDescricao: document.getElementById('necOutroDescricao').value,
+                        
+                        corRaca: document.querySelector('input[name="corRaca"]:checked')?.value || "",
+                        
+                        lgpdConsent: lgpdCheck.checked ? "Aceito" : "Não Aceito"
+                    };
+
+// 3. ENVIA PARA O SERVIDOR (Code.gs)
+                    google.script.run
+                        .withSuccessHandler(function(response) {
+// Sucesso!
+                            btnEnviar.disabled = false;
+                            btnEnviar.innerText = textoOriginal;
+
+                            if (response.success) {
+                                alert("✅ " + response.message);
+                                formDeclaracao.reset(); // Limpa os campos
+                                showPage('home');       // Volta para o início
+                            } else {
+                                alert("❌ Erro ao salvar: " + response.message);
+                            }
+                        })
+                        .withFailureHandler(function(error) {
+// Erro de rede ou servidor
+                            btnEnviar.disabled = false;
+                            btnEnviar.innerText = textoOriginal;
+                            alert("⚠️ Erro de comunicação: " + error);
+                        })
+                        .processarFormulario(dados); // Chama a função que criamos no Code.gs
+                });
+            }
     </script>
 </body>
 </html>
