@@ -2727,8 +2727,122 @@
         
 <!-- Página 6: Estatísticas (Escondida) ===================================================================================================== -->
         <div id="page-estatisticas" class="page-content hidden bg-white p-6 sm:p-10 rounded-lg shadow-lg">
-            <h2 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4">Guia Estatísticas</h2>
-            <p>Em construção... Aqui ficará o login e os gráficos.</p>
+            <div id="stats-login-screen" class="max-w-md mx-auto text-center py-10">
+                <div class="mb-6">
+                    <svg class="w-16 h-16 mx-auto text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                    </svg>
+                    <h2 class="text-2xl font-bold text-gray-800 mt-4">Área Restrita</h2>
+                    <p class="text-gray-600">Acesso exclusivo para gestores da Secretaria de Educação.</p>
+                </div>
+                <form id="formLoginStats" class="space-y-4" onsubmit="return false;">
+                    <div>
+                        <input type="password" id="inputSenhaStats" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-cyan-500 focus:ring-cyan-500" placeholder="Digite a senha de acesso" required>
+                    </div>
+                    <p id="msgErroLogin" class="text-red-500 text-sm hidden">Senha incorreta.</p>
+                    <button id="btnEntrarStats" class="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 px-4 rounded-md transition duration-200">
+                Entrar no Painel
+                    </button>
+                </form>
+            </div>
+<!---->     <div id="stats-dashboard" class="hidden">
+                <div class="flex justify-between items-center border-b pb-4 mb-6">
+                    <h2 class="text-xl sm:text-2xl font-bold text-gray-800">Painel de Indicadores</h2>
+                    <button id="btnLogoutStats" class="text-sm text-red-600 hover:text-red-800 font-medium border border-red-200 px-3 py-1 rounded hover:bg-red-50">
+                    Sair
+                    </button>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg mb-8 border border-gray-200">
+                    <h3 class="text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">
+                        Filtros de Dados
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-sm text-gray-600 mb-1">Ano Letivo</label>
+                            <select id="filtroAno" class="w-full rounded border-gray-300 text-sm focus:border-cyan-500 focus:ring-cyan-500">
+                                <option value="2025">2025</option>
+                                <option value="2024">2024</option>
+                            </select>
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-sm text-gray-600 mb-1">Unidade Escolar (Segure Ctrl para selecionar várias)</label>
+                            <select id="filtroEscola" multiple class="w-full rounded border-gray-300 text-sm h-24 focus:border-cyan-500 focus:ring-cyan-500">
+                                <option value="todas" selected class="font-bold">Todas as Unidades da Rede</option>
+                                <option value="Escola MBT">EMEF Mário Borelli Thomaz</option>
+                                <option value="Creche Djanira">Creche Djanira</option>
+                                <option value="Escola AG">EMEF Agostinho Garcia</option>
+                            </select>
+                        </div>
+                    </div>                
+                    <div class="mt-4 text-right">
+                        <button class="bg-gray-600 text-white px-4 py-2 rounded text-sm hover:bg-gray-700 transition-colors shadow-sm">
+                            Atualizar Gráficos
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                            <h4 class="font-bold text-gray-700 mb-4 text-center border-b pb-2">1. Renda Familiar</h4>
+                                <div class="h-64 relative w-full">
+                                    <canvas id="chartRenda"></canvas> 
+                                </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                            <h4 class="font-bold text-gray-700 mb-4 text-center border-b pb-2">2. Programa Social</h4>
+                                <div class="h-64 relative w-full">
+                                    <canvas id="chartSocial"></canvas>
+                                </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                            <h4 class="font-bold text-gray-700 mb-4 text-center border-b pb-2">3. Transporte Escolar</h4>
+                                <div class="h-64 relative w-full">
+                                    <canvas id="chartTransporte"></canvas>
+                                </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                            <h4 class="font-bold text-gray-700 mb-4 text-center border-b pb-2">4. Necessidades Especiais</h4>
+                                <div class="h-64 relative w-full">
+                                    <canvas id="chartNecessidades"></canvas>
+                                </div>
+                        </div>
+                        <div class="md:col-span-2 bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                            <h4 class="font-bold text-gray-700 mb-4 text-center border-b pb-2">5. Auto Declaração (Cor/Raça)</h4>
+                                <div class="h-80 relative w-full flex justify-center">
+                                    <div class="w-full md:w-1/2">
+                                        <canvas id="chartRaca"></canvas>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="md:col-span-2 bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                            <h4 class="font-bold text-gray-700 mb-4 text-center border-b pb-2">6. Cruzamento: Raça vs Renda</h4>
+                                <div class="h-80 relative w-full">
+                                    <canvas id="chartCruzamento"></canvas>
+                                </div>
+                            <p class="text-xs text-gray-500 mt-2 text-center">Análise de distribuição.</p>
+                        </div>
+                    </div>
+                    <div class="md:col-span-2 bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h4 class="font-bold text-gray-700 mb-4 text-center border-b pb-2">7. Cruzamento: Programa Social vs Raça</h4>
+                            <div class="h-80 relative w-full">
+                                <canvas id="chartCruzamentoSocial"></canvas>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-2 text-center">Mostra a proporção de beneficiários dentro de cada grupo racial.</p>
+                    </div>
+                    <div class="md:col-span-2 bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h4 class="font-bold text-gray-700 mb-4 text-center border-b pb-2">8. Cruzamento: Transporte vs Raça</h4>
+                            <div class="h-80 relative w-full">
+                                <canvas id="chartCruzamentoTransporte"></canvas>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-2 text-center">Uso de transporte escolar dividido por autodeclaração.</p>
+                    </div>
+                    <div class="md:col-span-2 bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h4 class="font-bold text-gray-700 mb-4 text-center border-b pb-2">9. Cruzamento: Necessidades Especiais vs Raça</h4>
+                            <div class="h-80 relative w-full">
+                                <canvas id="chartCruzamentoNecessidades"></canvas>
+                            </div>
+                        <p class="text-xs text-gray-500 mt-2 text-center">Mapeamento de necessidades especiais por grupo racial.</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </main>
@@ -2815,6 +2929,27 @@
             showPage('home');
 
         }); // <-- FIM DO "CONTRATO PRINCIPAL"
+// ============================================= LÓGICA DO LOGIN (Falso) ===
+            const loginScreen = document.getElementById('stats-login-screen');
+            const dashboardScreen = document.getElementById('stats-dashboard');
+            const btnEntrarStats = document.getElementById('btnEntrarStats');
+            const inputSenha = document.getElementById('inputSenhaStats');
+            const msgErro = document.getElementById('msgErroLogin');
+
+            // Quando clicar em "Entrar no Painel"
+            if(btnEntrarStats) {
+                btnEntrarStats.addEventListener('click', () => {
+                    // Senha provisória: "admin"
+                    if(inputSenha.value === "admin") {
+                        loginScreen.classList.add('hidden');        // Esconde Login
+                        dashboardScreen.classList.remove('hidden'); // Mostra a caixa cinza!
+                        msgErro.classList.add('hidden');            
+                        inputSenha.value = "";                      
+                    } else {
+                        msgErro.classList.remove('hidden');         // Mostra erro
+                    }
+                });
+            }
     </script>
 </body>
 </html>
